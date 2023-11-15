@@ -1,4 +1,5 @@
-import { Button, Card, Col, ListGroup, Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
+import { FaSearch } from "react-icons/fa";
 
 export default function PokemonDashboard() {
   const generaciones = [
@@ -42,7 +43,7 @@ export default function PokemonDashboard() {
     {
       name: "Septima Generacion",
       imagen: "https://m.media-amazon.com/images/I/81GOkVv8rOL.jpg",
-      consola: "Nintendo 3DS y Nintendo Switch",
+      consola: "Nintendo 3DS / Nintendo Switch",
       juegos: [
         "Sol",
         "Luna",
@@ -79,30 +80,127 @@ export default function PokemonDashboard() {
       <Row>
         {generaciones.map((e, i) => (
           <Col key={i} xs={12} lg={4} className="pt-4">
-            <Card style={{ height: "750px" }}>
-              <Card.Img
-                variant="top"
+            <div
+              style={{
+                backgroundColor: "white",
+                border: "solid",
+                borderRadius: "10px",
+                borderWidth: "1px",
+                boxShadow: "5px 5px 15px grey",
+                height: "1025px",
+                overflow: "hidden",
+                position: "relative"
+              }}
+            >
+              <img
                 src={e.imagen}
-                style={{ height: "400px", objectFit: "cover" }}
+                alt="caratula fav"
+                width="100%"
+                height="400px"
+                style={{ objectFit: "cover" }}
               />
-              <Card.Body>
-                <Card.Title>{e.name}</Card.Title>
-                <Card.Subtitle>{e.consola}</Card.Subtitle>
-                <Card.Text>
-                  <ListGroup>
-                    {e.juegos.map((juego, index) => (
-                      <ListGroup.Item key={index}>{juego}</ListGroup.Item>
-                    ))}
-                  </ListGroup>
-                </Card.Text>
-                <div style={{ position: "absolute", bottom: "10px", right: "10px" }}>
-                  <Button variant="outline-primary">Detalles</Button>
+              <div className="text-center mt-4">
+                <h3>{e.name}</h3>
+              </div>
+              <div
+                className="text-center m-auto"
+                style={{
+                  width: "80%",
+                  backgroundColor: "#5C8374",
+                  color: "white",
+                  borderRadius: "10px",
+                }}
+              >
+                <h5>{e.consola}</h5>
+              </div>
+              {e.juegos.map((juego, index) => (
+                <div style={{ display: "flex", justifyContent: "center" }}>
+                  <div
+                    style={{
+                      backgroundColor: "white",
+                      marginTop: "15px",
+                      width: "50px",
+                      height: "50px",
+                      border: "solid",
+                      borderColor: "grey",
+                      borderWidth: "0.1px",
+                      borderRadius: "5px",
+                      boxShadow: "1px 1px 5px grey",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      fontSize: "30px",
+                      color: "white",
+                      textShadow:
+                        "-1px 1px 0px #183D3D, 1px 1px 0px #183D3D, 1px -1px 0px #183D3D, -1px -1px 0px #183D3D",
+                      zIndex: "4",
+                    }}
+                  >
+                    {index + 1}
+                  </div>
+                  <div
+                    style={{
+                      backgroundColor: "#93B1A6",
+                      width: "80%",
+                      height: "50px",
+                      marginTop: "22px",
+                      marginLeft: "-10px",
+                      color: "white",
+                      paddingLeft: "20px",
+                      paddingTop: "10px",
+                      zIndex: "2",
+                      position: "relative",
+                    }}
+                  >
+                    {juego}
+                    <div
+                      style={{
+                        content: "",
+                        position: "absolute",
+                        top: 0,
+                        right: "-10px",
+                        width: "0",
+                        height: "0",
+                        borderTop: "25px solid transparent",
+                        borderBottom: "25px solid transparent",
+                        borderLeft: "10px solid #93B1A6",
+                      }}
+                    ></div>
+                  </div>
                 </div>
-              </Card.Body>
-            </Card>
+              ))}
+              <button
+                type="button"
+                style={{
+                  backgroundColor: "#183D3D",
+                  color: "white",
+                  border: "none",
+                  paddingTop: "10px",
+                  paddingBottom: "10px",
+                  paddingLeft: "64px",
+                  paddingRight: "64px",
+                  textDecoration: "none",
+                  fontSize: "16px",
+                  margin: "0 auto",
+                  display: "block",
+                  position: "absolute",
+                  bottom: "3%",
+                  left: "50%",
+                  transform: "translateX(-50%)",
+                  borderRadius: "10px",
+                }}
+                onMouseOver={(e) => e.currentTarget.style.border = "solid"}
+                onMouseOut={(e) => e.currentTarget.style.border = "none"}
+              >
+                <FaSearch />{" "}
+                Detalle
+              </button>
+            </div>
           </Col>
         ))}
       </Row>
+      <br />
+      <br />
     </div>
   );
 }
