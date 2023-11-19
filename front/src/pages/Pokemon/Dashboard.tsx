@@ -1,7 +1,10 @@
 import { Col, Row } from "react-bootstrap";
 import { FaSearch } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 export default function PokemonDashboard() {
+  const navigate = useNavigate();
+
   const generaciones = [
     {
       name: "Primera Generacion",
@@ -170,6 +173,7 @@ export default function PokemonDashboard() {
                 </div>
               ))}
               <button
+                onClick={() => navigate(`/pokemon/${i+1}`)}
                 type="button"
                 style={{
                   backgroundColor: "#183D3D",

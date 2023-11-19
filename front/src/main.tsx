@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Error from "./layouts/Error";
 import SpotifyDashboard from "./pages/Spotify/Dashboard";
 import PokemonDashboard from "./pages/Pokemon/Dashboard";
+import PokemonDetalle from "./pages/Pokemon/Detalle";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
       {
         path: "pokemon",
         element: <PokemonDashboard />
+      },
+      {
+        path: "pokemon/:gen",
+        element: <PokemonDetalle />
       }
     ]
   },
