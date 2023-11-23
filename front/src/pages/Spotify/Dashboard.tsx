@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { keys } from "../../keys.ts";
 import { Col, Row } from "react-bootstrap";
 import { environmentSpotify } from "../../environment.ts";
+import { BsPeople } from "react-icons/bs";
+import { MdOutlinePublic } from "react-icons/md";
 
 export default function SpotifyDashboard() {
   const [playlistURL, setPlaylistURL] = useState("");
@@ -70,6 +72,7 @@ export default function SpotifyDashboard() {
       }
 
       let id = playlistURL.split("/")[4].split("?")[0];
+      console.log(playlistURL.split("/")[4].split("?")[0])
       const config = {
         method: "get",
         url: "https://api.spotify.com/v1/playlists/" + id,
@@ -172,7 +175,7 @@ export default function SpotifyDashboard() {
               background: "#93B1A6",
               borderRadius: ".2em .2em 0 0",
               padding: ".4em",
-              color: "#183D3D",
+              color: "#040D12",
             }}
             value={playlistURL}
             onChange={(ev) => setPlaylistURL(ev.currentTarget.value)}
@@ -284,7 +287,9 @@ export default function SpotifyDashboard() {
                       "-1px 1px 0px #183D3D, 1px 1px 0px #183D3D, 1px -1px 0px #183D3D, -1px -1px 0px #183D3D",
                     zIndex: "4",
                   }}
-                ></div>
+                >
+                  <BsPeople style={{ color: "#040D12" }} />
+                </div>
                 <div
                   style={{
                     backgroundColor: "#93B1A6",
@@ -338,7 +343,9 @@ export default function SpotifyDashboard() {
                       "-1px 1px 0px #183D3D, 1px 1px 0px #183D3D, 1px -1px 0px #183D3D, -1px -1px 0px #183D3D",
                     zIndex: "4",
                   }}
-                ></div>
+                >
+                  <MdOutlinePublic style={{ color: "#040D12" }} />
+                </div>
                 <div
                   style={{
                     backgroundColor: "#93B1A6",
@@ -485,6 +492,7 @@ export default function SpotifyDashboard() {
           ))}
         </Row>
       )}
+      <br />
     </div>
   );
 }
