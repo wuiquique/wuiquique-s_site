@@ -72,7 +72,7 @@ export default function SpotifyDashboard() {
       }
 
       let id = playlistURL.split("/")[4].split("?")[0];
-      console.log(playlistURL.split("/")[4].split("?")[0])
+      console.log(playlistURL.split("/")[4].split("?")[0]);
       const config = {
         method: "get",
         url: "https://api.spotify.com/v1/playlists/" + id,
@@ -223,26 +223,23 @@ export default function SpotifyDashboard() {
           }}
         >
           <Row>
-            <Col xs={6} md={4} lg={3}>
-              <div
-                style={{
-                  // display: "flex",
-                  // justifyContent: "center",
-                  // alignContent: "center",
-                  paddingTop: "10px",
-                  paddingLeft: "10px",
-                  paddingBottom: "10px",
-                }}
-              >
-                <img
-                  src={playlistData.images[0].url}
-                  alt="Playlist Img"
-                  width="90%"
-                  height={"90%"}
-                />
-              </div>
+            <Col
+              xs={12}
+              md={6}
+              lg={4}
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <img
+                src={playlistData.images[0].url}
+                alt="Playlist Img"
+                width="60%"
+              />
             </Col>
-            <Col xs={6} md={8} lg={9}>
+            <Col xs={12} md={6} lg={8}>
               <br />
               <h2>{playlistData.name}</h2>
               {playlistData.description && <h6>{playlistData.description}</h6>}
