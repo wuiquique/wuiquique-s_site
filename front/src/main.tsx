@@ -7,6 +7,7 @@ import Error from "./layouts/Error";
 import SpotifyDashboard from "./pages/Spotify/Dashboard";
 import PokemonDashboard from "./pages/Pokemon/Dashboard";
 import PokemonDetalle from "./pages/Pokemon/Detalle";
+import MainDashboard from "./pages/Dashboard";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
     element: <FullLayout />,
     errorElement: <Error />,
     children: [
+      {
+        path: "",
+        element: <MainDashboard />
+      },
       {
         path: "spotify",
         element: <SpotifyDashboard />

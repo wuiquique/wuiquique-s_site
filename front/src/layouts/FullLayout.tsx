@@ -28,9 +28,9 @@ export default function FullLayout() {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link href="/">Home</Nav.Link>
-              <Nav.Link href="/spotify">Spotify</Nav.Link>
-              <Nav.Link href="/pokemon">Pokemon</Nav.Link>
-              <Nav.Link href="#valorant">Valorant</Nav.Link>
+              <Nav.Link href="/spotify">Playlists</Nav.Link>
+              {/* <Nav.Link href="/pokemon">Pokemon</Nav.Link>
+              <Nav.Link href="#valorant">Valorant</Nav.Link> */}
             </Nav>
           </Navbar.Collapse>
         </Container>
